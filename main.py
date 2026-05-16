@@ -37,6 +37,14 @@ if not os.path.exists("raw_data/employee.parquet"):
 emp_data_frame_parquet = pd.read_parquet("raw_data/employee.parquet")
 print(emp_data_frame_parquet)
 
+# print data
+print("%" * 20)
+print(emp_data_frame_csv.head(3)) # print first 3 row
+print("%" * 20)
+print(emp_data_frame_csv.sample(3)) # print random 3 row
+print("%" * 20)
+print(emp_data_frame_csv.tail(3)) # print last 3 row
+
 
 
 
