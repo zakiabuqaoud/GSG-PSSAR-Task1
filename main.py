@@ -1,5 +1,6 @@
 
 import pandas as pd
+import os
 
 #read and print CSV file
 emp_data_frame_csv = pd.read_csv("raw_data/employee.csv")
@@ -20,15 +21,17 @@ print("///" * 50)
 
 #dealing with parquet files
 
-# create my  data frame
-my_data = {
-    "names" : ["Zaki", "Omar", "Ahmed"],
-    "ages": [26,28,30]
-}
-my_data_frame = pd.DataFrame(my_data)
+# check Is parquet exists
+if not os.path.exists("raw_data/employee.parquet"):
+    # create my  data frame
+    my_data = {
+        "names" : ["Zaki", "Omar", "Ahmed"],
+        "ages": [26,28,30]
+    }
+    my_data_frame = pd.DataFrame(my_data)
 
-# create parquet file
-my_data_frame.to_parquet("raw_data/employee.parquet")
+    # create parquet file
+    my_data_frame.to_parquet("raw_data/employee.parquet")
 
 #read and print parquet file
 emp_data_frame_parquet = pd.read_parquet("raw_data/employee.parquet")
